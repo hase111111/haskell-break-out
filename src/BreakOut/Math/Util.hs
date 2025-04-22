@@ -1,5 +1,7 @@
 module BreakOut.Math.Util 
-    ( distance
+    ( reflectX
+    , reflectY
+    , distance
     , segmentLength
     , crossProduct
     , dotProduct
@@ -7,6 +9,14 @@ module BreakOut.Math.Util
 where
 
 import BreakOut.Math.Type
+
+-- | 反射 x
+reflectX :: Position -> Position
+reflectX (Position x y) = Position (-x) y
+
+-- | 反射 y
+reflectY :: Position -> Position
+reflectY (Position x y) = Position x (-y)
 
 -- | Calculate the distance between two points.
 distance :: Position -> Position -> Float
