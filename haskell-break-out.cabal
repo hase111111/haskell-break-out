@@ -27,6 +27,9 @@ library
   exposed-modules:
       BreakOut.Math.Type
       BreakOut.Math.Util
+      BreakOut.Param.Ball
+      BreakOut.Param.Paddle
+      BreakOut.Param.Stage
       BreakOut.Render.BlockRender
       BreakOut.Render.Const
       BreakOut.Render.GameSceneRenderer

@@ -8,7 +8,10 @@ module BreakOut.Type(
 
 import Data.Vector
 
-import BreakOut.Math.Type
+import qualified BreakOut.Math.Type as MT
+import qualified BreakOut.Param.Paddle as PP
+import qualified BreakOut.Param.Ball as PB
+import qualified BreakOut.Param.Stage as PS
 
 data Scene = 
       TitleScene TitleState
@@ -22,25 +25,17 @@ data TitleState = TitleState
 
 data GameState = GameState
     { level :: Int
-    , ballRigidBody :: RigidBody
-    , paddleRigidBody :: RigidBody
-    , bricksKinematic :: Vector RigidBody
+    , ballRigidBody :: MT.RigidBody
+    , paddleRigidBody :: MT.RigidBody
+    , bricksRigidBody :: Vector MT.RigidBody
     } deriving (Show, Eq)
 
 gameStateDefault :: GameState
 gameStateDefault = GameState
     { level = 1
-    , ballRigidBody = RigidBody
-        { position = zeroPosition
-        , velocity = zeroPosition
-        , collision = CircleCollision (CircleCollisionParam 15.0)
-        }
-    , paddleRigidBody = RigidBody
-        { position = Position 0 (-220)
-        , velocity = zeroPosition
-        , collision = RectCollision (RectCollisionParam 100 20)
-        }
-    , bricksKinematic = empty
+    , ballRigidBody = PB.defaultBallRigidBody
+    , paddleRigidBody = PP.defaultPaddleRigidBody
+    , bricksRigidBody = PS.makeStage1
     }
 
 data GameField = GameField

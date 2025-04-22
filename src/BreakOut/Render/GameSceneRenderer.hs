@@ -6,12 +6,13 @@ where
 
 import Graphics.Gloss
 
-import BreakOut.Type
-import BreakOut.Render.BlockRender
-import BreakOut.Render.Const
+import qualified BreakOut.Type as T
+import qualified BreakOut.Render.BlockRender as RB
+import qualified BreakOut.Render.Const as RC
 
 
-renderGameScene :: GameState -> Picture
-renderGameScene GameState{..} =
-    renderRigidBody ballRigidBody ballColor <>
-    renderRigidBody paddleRigidBody paddleColor
+renderGameScene :: T.GameState -> Picture
+renderGameScene (T.GameState _ ball paddle bricks) =
+    RB.renderRigidBody ball RC.ballColor <>
+    RB.renderRigidBody paddle RC.paddleColor <>
+    foldr ((<>) . (`RB.renderRigidBody` cyan)) blank bricks
