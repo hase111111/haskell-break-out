@@ -30,6 +30,7 @@ library
       BreakOut.Param.Ball
       BreakOut.Param.Paddle
       BreakOut.Param.Stage
+      BreakOut.Param.Wall
       BreakOut.Render.Const
       BreakOut.Render.GameSceneRenderer
       BreakOut.Render.RigidBodyRenderer

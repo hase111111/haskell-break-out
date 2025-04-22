@@ -12,6 +12,7 @@ import qualified BreakOut.Math.Type as MT
 import qualified BreakOut.Param.Paddle as PP
 import qualified BreakOut.Param.Ball as PB
 import qualified BreakOut.Param.Stage as PS
+import qualified BreakOut.Param.Wall as PW
 
 data Scene = 
       TitleScene TitleState
@@ -37,7 +38,7 @@ gameStateDefault = GameState
     , ballRigidBody = PB.defaultBallRigidBody
     , paddleRigidBody = PP.defaultPaddleRigidBody
     , bricksRigidBody = PS.makeStage1
-    , wallsRigidBody = V.empty
+    , wallsRigidBody = PW.defaultWallsRigidBody
     }
 
 data GameField = GameField
