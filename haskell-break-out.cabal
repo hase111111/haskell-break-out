@@ -25,8 +25,8 @@ source-repository head
 
 library
   exposed-modules:
+      BreakOut.Type
       Lib
-      Type
       WindowSetting
   other-modules:
       Paths_haskell_break_out
