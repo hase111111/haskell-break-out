@@ -25,8 +25,8 @@ source-repository head
 
 library
   exposed-modules:
-      BreakOut.Math
       BreakOut.Math.Type
+      BreakOut.Math.Util
       BreakOut.Render.BlockRender
       BreakOut.Render.GameSceneRenderer
       BreakOut.Render.TitleSceneRenderer

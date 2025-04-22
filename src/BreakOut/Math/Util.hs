@@ -1,4 +1,4 @@
-module BreakOut.Math where
+module BreakOut.Math.Util where
 
 import BreakOut.Math.Type
 
