@@ -1,42 +1,12 @@
 module BreakOut.Type(
-    -- * GameField
     GameField(..)
     , GameState(..)
+    , TitleState(..)
     , gameStateDefault
     , Scene(..)
-    , TitleState(..)
-
-    -- * Kinematic
-    , Kinematic(..)
-    , Position(..)
-
-    -- * Segment
-    , Segment(..)
-
-    -- * RectCollision
-    , RectCollision(..)
 ) where
 
-data Position = Position
-    { positionX :: Float
-    , positionY :: Float
-    } deriving (Show, Eq)
-
-data Kinematic = Kinematic
-    { position :: Position
-    , velocity :: Position
-    , acceleration :: Position
-    } deriving (Show, Eq)
-
-data Segment = Segment
-    { start :: Position
-    , end :: Position
-    } deriving (Show, Eq)
-
-data RectCollision = RectCollision
-    { rectWidth :: Float
-    , rectHeight :: Float
-    } deriving (Show, Eq)
+import BreakOut.Math.Type
 
 data Scene = 
       TitleScene TitleState
@@ -50,29 +20,29 @@ data TitleState = TitleState
 
 data GameState = GameState
     { level :: Int
-    , ballKinematic :: Kinematic
-    , paddleKinematic :: Kinematic
-    , paddleCollision :: RectCollision
-    , bricksKinematic :: [Kinematic]
-    , brickCollision :: RectCollision
+    , ballRigidBody :: RigidBody
+    , paddleRigidBody :: RigidBody
+    -- , paddleCollision :: RectCollision
+    -- , bricksKinematic :: [Kinematic]
+    -- , brickCollision :: RectCollision
     } deriving (Show, Eq)
 
 gameStateDefault :: GameState
 gameStateDefault = GameState
     { level = 1
-    , ballKinematic = Kinematic
-        { position = Position 0 0
-        , velocity = Position 0 0
-        , acceleration = Position 0 0
+    , ballRigidBody = RigidBody
+        { position = zeroPosition
+        , velocity = zeroPosition
+        , collision = CircleCollision (CircleCollisionParam 10.0)
         }
-    , paddleKinematic = Kinematic
-        { position = Position 0 0
-        , velocity = Position 0 0
-        , acceleration = Position 0 0
+    , paddleRigidBody = RigidBody
+        { position = zeroPosition
+        , velocity = zeroPosition
+        , collision = CircleCollision (CircleCollisionParam 10.0)
         }
-    , paddleCollision = RectCollision 100 20
-    , bricksKinematic = []
-    , brickCollision = RectCollision 50 20
+    -- , paddleCollision = RectCollision 100 20
+    -- , bricksKinematic = []
+    -- , brickCollision = RectCollision 50 20
     }
 
 data GameField = GameField

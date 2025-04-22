@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       BreakOut.Math
+      BreakOut.Math.Type
+      BreakOut.Render.BlockRender
       BreakOut.Type
       Lib
       WindowSetting

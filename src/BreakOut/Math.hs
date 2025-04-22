@@ -1,6 +1,6 @@
 module BreakOut.Math where
 
-import BreakOut.Type
+import BreakOut.Math.Type
 
 -- | Calculate the distance between two points.
 distance :: Position -> Position -> Float
@@ -23,7 +23,6 @@ dotProduct (Position x1 y1) (Position x2 y2) =
     x1 * x2 + y1 * y2
 
 -- | get intersection of line segments.
--- | https://stackoverflow.com/questions/563198/how-do-you-detect-where-two-line-segments-intersect
 intersection :: Segment -> Segment -> Maybe Position
 intersection (Segment (Position x1 y1) (Position x2 y2)) 
             (Segment (Position x3 y3) (Position x4 y4)) = 
