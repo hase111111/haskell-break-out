@@ -1,21 +1,24 @@
-module BreakOut.Render.BlockRender where
+module BreakOut.Render.BlockRender 
+    ( renderRectangle
+    , renderCircle
+    , renderRigidBody )
+where
 
 import Graphics.Gloss
-import Graphics.Gloss.Interface.IO.Game
 
 import BreakOut.Math.Type
 
+
 renderRectangle :: RectCollisionParam -> Position -> Color -> Picture
-renderRectangle (RectCollisionParam w h) (Position x y) color = 
-    Color color $ Translate x y $ rectangleSolid w h
+renderRectangle (RectCollisionParam w h) (Position x y) c = 
+    Color c $ Translate x y $ rectangleSolid w h
 
 renderCircle :: CircleCollisionParam -> Position -> Color -> Picture
-renderCircle (CircleCollisionParam r) (Position x y) color = 
-    Color color $ Translate x y $ circleSolid r
+renderCircle (CircleCollisionParam r) (Position x y) c = 
+    Color c $ Translate x y $ circleSolid r
 
 renderRigidBody :: RigidBody -> Color -> Picture
-renderRigidBody (RigidBody pos _ (CircleCollision param)) color = 
-    renderCircle param pos color
-renderRigidBody (RigidBody pos _ (RectCollision param)) color =
-    renderRectangle param pos color
-renderRigidBody (RigidBody _ _ _) _ = blank
+renderRigidBody (RigidBody pos _ (CircleCollision param)) c = 
+    renderCircle param pos c
+renderRigidBody (RigidBody pos _ (RectCollision param)) c =
+    renderRectangle param pos c

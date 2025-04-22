@@ -7,6 +7,7 @@ import WindowSetting
 import BreakOut.Type
 import BreakOut.Render.GameSceneRenderer
 import BreakOut.Render.TitleSceneRenderer
+import BreakOut.Update.GameSceneUpdater
 
 
 initGameField :: GameField
@@ -32,7 +33,9 @@ updateGameField delta field =
     let field' = field { fps = delta }
     in case scene field of
         TitleScene _ -> field'
-        GameScene _ -> field'
+        GameScene state -> 
+            let state' = updateGameScene delta state
+            in field' { scene = GameScene state' }
 
 main :: IO ()
 main = play 
