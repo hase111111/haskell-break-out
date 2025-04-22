@@ -28,6 +28,7 @@ library
       BreakOut.Math.Type
       BreakOut.Math.Util
       BreakOut.Render.BlockRender
+      BreakOut.Render.Const
       BreakOut.Render.GameSceneRenderer
       BreakOut.Render.TitleSceneRenderer
       BreakOut.Type
@@ -43,6 +44,7 @@ library
   build-depends:
       base >=4.7 && <5
     , gloss
+    , vector
   default-language: Haskell2010
 
 executable haskell-break-out-exe
@@ -58,6 +60,7 @@ executable haskell-break-out-exe
       base >=4.7 && <5
     , gloss
     , haskell-break-out
+    , vector
   default-language: Haskell2010
 
 test-suite haskell-break-out-test
@@ -74,4 +77,5 @@ test-suite haskell-break-out-test
       base >=4.7 && <5
     , gloss
     , haskell-break-out
+    , vector
   default-language: Haskell2010

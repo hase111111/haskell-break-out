@@ -6,6 +6,8 @@ module BreakOut.Type(
     , Scene(..)
 ) where
 
+import Data.Vector
+
 import BreakOut.Math.Type
 
 data Scene = 
@@ -22,9 +24,7 @@ data GameState = GameState
     { level :: Int
     , ballRigidBody :: RigidBody
     , paddleRigidBody :: RigidBody
-    -- , paddleCollision :: RectCollision
-    -- , bricksKinematic :: [Kinematic]
-    -- , brickCollision :: RectCollision
+    , bricksKinematic :: Vector RigidBody
     } deriving (Show, Eq)
 
 gameStateDefault :: GameState
@@ -40,9 +40,7 @@ gameStateDefault = GameState
         , velocity = zeroPosition
         , collision = RectCollision (RectCollisionParam 100 20)
         }
-    -- , paddleCollision = RectCollision 100 20
-    -- , bricksKinematic = []
-    -- , brickCollision = RectCollision 50 20
+    , bricksKinematic = empty
     }
 
 data GameField = GameField
