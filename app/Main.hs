@@ -1,21 +1,29 @@
-module Main where
+
+module Main (main) where
 
 import Graphics.Gloss
+import Graphics.Gloss.Interface.IO.Game
 
--- Windowのサイズを指定する関数，Num型にすることで，IntやFloatで渡すことができる.
-myWindowWidth :: Num a => a
-myWindowWidth = 960
+import WindowSetting
 
-myWindowHeight :: Num a => a
-myWindowHeight = 600
+sampleInit :: Int
+sampleInit = 0
 
--- Windowのタイトルを指定する関数.
-myWindowTitle :: String
-myWindowTitle = "breakout-hs"
+sampleDraw :: Int -> Picture
+sampleDraw n = Translate (-200) 0 $ Scale 0.5 0.5 $ Color (makeColor 1 0 0 1) $ Text (show (n `div` 60))
 
--- Displayの引数を指定する関数. ウィンドウタイトル，横幅・縦幅，ウィンドウの位置を指定する.
-myWindowDisplay :: Display
-myWindowDisplay = InWindow myWindowTitle (myWindowWidth, myWindowHeight) (10, 10)
+sampleEventHandler :: Event -> Int -> Int
+sampleEventHandler _ n = n
+
+sampleUpdater :: Float -> Int -> Int
+sampleUpdater _ n = n + 1
 
 main :: IO ()
-main = display myWindowDisplay white blank
+main = play 
+    myWindowDisplay
+    myWindowBackgroundColor
+    myWindowFPS
+    sampleInit
+    sampleDraw
+    sampleEventHandler
+    sampleUpdater
