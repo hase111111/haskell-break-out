@@ -31,7 +31,6 @@ library
       BreakOut.Render.GameSceneRenderer
       BreakOut.Render.TitleSceneRenderer
       BreakOut.Type
-      Lib
       WindowSetting
   other-modules:
       Paths_haskell_break_out
