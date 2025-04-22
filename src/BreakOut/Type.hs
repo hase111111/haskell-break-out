@@ -1,5 +1,3 @@
-{-# LANGUAGE DuplicateRecordFields #-}
-
 module BreakOut.Type where
 
 data Position = Position
@@ -7,9 +5,20 @@ data Position = Position
     , positionY :: Float
     } deriving (Show, Eq)
 
+data Kinematic = Kinematic
+    { position :: Position
+    , velocity :: Position
+    , acceleration :: Position
+    } deriving (Show, Eq)
+
 data Segment = Segment
     { start :: Position
     , end :: Position
+    } deriving (Show, Eq)
+
+data RectCollision = RectCollision
+    { rectWidth :: Float
+    , rectHeight :: Float
     } deriving (Show, Eq)
 
 data Scene = 
@@ -24,8 +33,30 @@ data TitleState = TitleState
 
 data GameState = GameState
     { level :: Int
-    , game :: String
+    , ballKinematic :: Kinematic
+    , paddleKinematic :: Kinematic
+    , paddleCollision :: RectCollision
+    , bricksKinematic :: [Kinematic]
+    , brickCollision :: RectCollision
     } deriving (Show, Eq)
+
+GameStateDefault :: GameState
+GameStateDefault = GameState
+    { level = 1
+    , ballKinematic = Kinematic
+        { position = Position 0 0
+        , velocity = Position 0 0
+        , acceleration = Position 0 0
+        }
+    , paddleKinematic = Kinematic
+        { position = Position 0 0
+        , velocity = Position 0 0
+        , acceleration = Position 0 0
+        }
+    , paddleCollision = RectCollision 100 20
+    , bricksKinematic = []
+    , brickCollision = RectCollision 50 20
+    }
 
 data GameField = GameField
     { fps :: Float

@@ -13,10 +13,7 @@ import BreakOut.Type
 sampleInit :: GameField
 sampleInit = GameField
     { fps = 0
-    , scene = GameScene $ GameState
-        { level = 1
-        , game = "BreakOut"
-        }
+    , scene = GameScene GameStateDefault
     }
 
 sampleDraw :: GameField -> Picture
