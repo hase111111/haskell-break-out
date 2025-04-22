@@ -11,10 +11,10 @@ defaultBallPos :: MT.Position
 defaultBallPos = MT.Position 0 (-150)
 
 defaultBallVelocity :: MT.Position
-defaultBallVelocity = MT.Position 75 75
+defaultBallVelocity = MT.Position 200 200
 
 defaultBallCollision :: MT.Collision
-defaultBallCollision = MT.CircleCollision $ MT.CircleCollisionParam 15.0
+defaultBallCollision = MT.CircleCollision $ MT.CircleCollisionParam 10
 
 defaultBallRigidBody :: MT.RigidBody
 defaultBallRigidBody = MT.RigidBody

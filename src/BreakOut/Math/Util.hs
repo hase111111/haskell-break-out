@@ -1,6 +1,7 @@
 module BreakOut.Math.Util 
     ( reflectX
     , reflectY
+    , scale
     , distance
     , segmentLength
     , crossProduct
@@ -8,40 +9,44 @@ module BreakOut.Math.Util
     , intersection )
 where
 
-import BreakOut.Math.Type
+import qualified BreakOut.Math.Type as MT
 
 -- | 反射 x
-reflectX :: Position -> Position
-reflectX (Position x y) = Position (-x) y
+reflectX :: MT.Position -> MT.Position
+reflectX (MT.Position x y) = MT.Position (-x) y
 
 -- | 反射 y
-reflectY :: Position -> Position
-reflectY (Position x y) = Position x (-y)
+reflectY :: MT.Position -> MT.Position
+reflectY (MT.Position x y) = MT.Position x (-y)
+
+-- | 定数倍する
+scale :: Float -> MT.Position -> MT.Position
+scale k (MT.Position x y) = MT.Position (k * x) (k * y)
 
 -- | Calculate the distance between two points.
-distance :: Position -> Position -> Float
-distance (Position x1 y1) (Position x2 y2) = 
+distance :: MT.Position -> MT.Position -> Float
+distance (MT.Position x1 y1) (MT.Position x2 y2) = 
     sqrt ((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 -- | Calculate the length of a segment.
-segmentLength :: Segment -> Float
-segmentLength (Segment (Position x1 y1) (Position x2 y2)) = 
+segmentLength :: MT.Segment -> Float
+segmentLength (MT.Segment (MT.Position x1 y1) (MT.Position x2 y2)) = 
     sqrt ((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 -- | Calculate cross product of two vectors.
-crossProduct :: Position -> Position -> Float
-crossProduct (Position x1 y1) (Position x2 y2) = 
+crossProduct :: MT.Position -> MT.Position -> Float
+crossProduct (MT.Position x1 y1) (MT.Position x2 y2) = 
     x1 * y2 - x2 * y1
 
 -- | Calculate dot product of two vectors.
-dotProduct :: Position -> Position -> Float
-dotProduct (Position x1 y1) (Position x2 y2) = 
+dotProduct :: MT.Position -> MT.Position -> Float
+dotProduct (MT.Position x1 y1) (MT.Position x2 y2) = 
     x1 * x2 + y1 * y2
 
 -- | get intersection of line segments.
-intersection :: Segment -> Segment -> Maybe Position
-intersection (Segment (Position x1 y1) (Position x2 y2)) 
-            (Segment (Position x3 y3) (Position x4 y4)) = 
+intersection :: MT.Segment -> MT.Segment -> Maybe MT.Position
+intersection (MT.Segment (MT.Position x1 y1) (MT.Position x2 y2)) 
+            (MT.Segment (MT.Position x3 y3) (MT.Position x4 y4)) = 
     let s1_x = x2 - x1
         s1_y = y2 - y1
         s2_x = x4 - x3
@@ -49,5 +54,5 @@ intersection (Segment (Position x1 y1) (Position x2 y2))
         s = (-(s1_y * (x1 - x3)) + s1_x * (y1 - y3)) / (-(s2_x * s1_y) + s1_x * s2_y)
         t = (s2_x * (y1 - y3) - s2_y * (x1 - x3)) / (-(s2_x * s1_y) + s1_x * s2_y)
     in if s >= 0 && s <= 1 && t >= 0 && t <= 1
-        then Just (Position (x1 + (t * s1_x)) (y1 + (t * s1_y)))
+        then Just (MT.Position (x1 + (t * s1_x)) (y1 + (t * s1_y)))
         else Nothing

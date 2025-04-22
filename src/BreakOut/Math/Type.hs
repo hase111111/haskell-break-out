@@ -14,7 +14,6 @@ data Position = Position
     , positionY :: Float
     } deriving (Show, Eq)
 
--- | Position + operation
 instance Num Position where
     (+) (Position x1 y1) (Position x2 y2) = Position (x1 + x2) (y1 + y2)
     (-) (Position x1 y1) (Position x2 y2) = Position (x1 - x2) (y1 - y2)
