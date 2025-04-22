@@ -5,6 +5,7 @@ import Graphics.Gloss
 import Graphics.Gloss.Interface.IO.Game
 
 import WindowSetting
+import Type
 
 sampleInit :: Int
 sampleInit = 0
