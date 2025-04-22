@@ -33,12 +33,12 @@ gameStateDefault = GameState
     , ballRigidBody = RigidBody
         { position = zeroPosition
         , velocity = zeroPosition
-        , collision = CircleCollision (CircleCollisionParam 10.0)
+        , collision = CircleCollision (CircleCollisionParam 15.0)
         }
     , paddleRigidBody = RigidBody
-        { position = zeroPosition
+        { position = Position 0 (-220)
         , velocity = zeroPosition
-        , collision = CircleCollision (CircleCollisionParam 10.0)
+        , collision = RectCollision (RectCollisionParam 100 20)
         }
     -- , paddleCollision = RectCollision 100 20
     -- , bricksKinematic = []

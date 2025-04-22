@@ -8,21 +8,21 @@ import Graphics.Gloss.Interface.IO.Game
 
 import WindowSetting
 import BreakOut.Type
+import BreakOut.Render.GameSceneRenderer
+import BreakOut.Render.TitleSceneRenderer
 
 
-sampleInit :: GameField
-sampleInit = GameField
+initGameField :: GameField
+initGameField = GameField
     { fps = 0
     , scene = GameScene gameStateDefault
     }
 
-sampleDraw :: GameField -> Picture
-sampleDraw GameField{..} = 
+renderGameField :: GameField -> Picture
+renderGameField GameField{..} = 
     case scene of
-        TitleScene _ ->
-            Translate (-100) 0 $ Scale 0.1 0.1 $ Text "TitleScene"
-        GameScene _ ->
-            Translate (-100) 0 $ Scale 0.1 0.1 $ Text "GameScene"
+        TitleScene state -> renderTitleScene state
+        GameScene state -> renderGameScene state
 
 sampleEventHandler :: Event -> GameField -> GameField
 sampleEventHandler _ n = n
@@ -37,7 +37,7 @@ main = play
     myWindowDisplay
     myWindowBackgroundColor
     myWindowFPS
-    sampleInit
-    sampleDraw
+    initGameField
+    renderGameField
     sampleEventHandler
     sampleUpdater

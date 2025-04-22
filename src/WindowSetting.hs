@@ -31,4 +31,4 @@ myWindowDisplay = InWindow myWindowTitle (myWindowWidth, myWindowHeight) (10, 10
 
 -- 背景色を指定する関数.
 myWindowBackgroundColor :: Color
-myWindowBackgroundColor = makeColor 0.8 0.8 0.8 1
+myWindowBackgroundColor = makeColor 1 1 1 1

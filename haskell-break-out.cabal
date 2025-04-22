@@ -28,6 +28,8 @@ library
       BreakOut.Math
       BreakOut.Math.Type
       BreakOut.Render.BlockRender
+      BreakOut.Render.GameSceneRenderer
+      BreakOut.Render.TitleSceneRenderer
       BreakOut.Type
       Lib
       WindowSetting
