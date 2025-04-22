@@ -1,6 +1,3 @@
-
-{-# LANGUAGE RecordWildCards #-}
-
 module Main (main) where
 
 import Graphics.Gloss
@@ -19,25 +16,30 @@ initGameField = GameField
     }
 
 renderGameField :: GameField -> Picture
-renderGameField GameField{..} = 
-    case scene of
+renderGameField field = 
+    case scene field of
         TitleScene state -> renderTitleScene state
         GameScene state -> renderGameScene state
 
-sampleEventHandler :: Event -> GameField -> GameField
-sampleEventHandler _ n = n
+handleEvent :: Event -> GameField -> GameField
+handleEvent _ field =
+    case scene field of
+        TitleScene _ -> field
+        GameScene _ -> field
 
-sampleUpdater :: Float -> GameField -> GameField
-sampleUpdater delta n = n {
-    fps = 1 / delta
-}
+updateGameField :: Float -> GameField -> GameField
+updateGameField delta field = 
+    let field' = field { fps = delta }
+    in case scene field of
+        TitleScene _ -> field'
+        GameScene _ -> field'
 
 main :: IO ()
 main = play 
-    myWindowDisplay
-    myWindowBackgroundColor
-    myWindowFPS
-    initGameField
-    renderGameField
-    sampleEventHandler
-    sampleUpdater
+    myWindowDisplay 
+    myWindowBackgroundColor 
+    myWindowFPS 
+    initGameField 
+    renderGameField 
+    handleEvent 
+    updateGameField

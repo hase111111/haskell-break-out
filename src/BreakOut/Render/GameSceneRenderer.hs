@@ -5,11 +5,10 @@ module BreakOut.Render.GameSceneRenderer
 where
 
 import Graphics.Gloss
-import Graphics.Gloss.Interface.IO.Game
 
 import BreakOut.Type
-import BreakOut.Math.Type
 import BreakOut.Render.BlockRender
+
 
 renderGameScene :: GameState -> Picture
 renderGameScene GameState{..} =
