@@ -10,7 +10,7 @@ import qualified BreakOut.Render.Const as RC
 
 
 renderGameScene :: T.GameState -> Picture
-renderGameScene (T.GameState _ ball paddle bricks) =
+renderGameScene (T.GameState _ ball paddle bricks _) =
     RB.renderRigidBody ball RC.ballColor <>
     RB.renderRigidBody paddle RC.paddleColor <>
     foldr ((<>) . (`RB.renderRigidBody` cyan)) blank bricks

@@ -6,7 +6,7 @@ module BreakOut.Type(
     , Scene(..)
 ) where
 
-import Data.Vector
+import qualified Data.Vector as V
 
 import qualified BreakOut.Math.Type as MT
 import qualified BreakOut.Param.Paddle as PP
@@ -27,7 +27,8 @@ data GameState = GameState
     { level :: Int
     , ballRigidBody :: MT.RigidBody
     , paddleRigidBody :: MT.RigidBody
-    , bricksRigidBody :: Vector MT.RigidBody
+    , bricksRigidBody :: V.Vector MT.RigidBody
+    , wallsRigidBody :: V.Vector MT.RigidBody
     } deriving (Show, Eq)
 
 gameStateDefault :: GameState
@@ -36,6 +37,7 @@ gameStateDefault = GameState
     , ballRigidBody = PB.defaultBallRigidBody
     , paddleRigidBody = PP.defaultPaddleRigidBody
     , bricksRigidBody = PS.makeStage1
+    , wallsRigidBody = V.empty
     }
 
 data GameField = GameField
