@@ -1,3 +1,5 @@
+{-# LANGUAGE DuplicateRecordFields #-}
+
 module BreakOut.Type where
 
 data Position = Position
@@ -11,14 +13,21 @@ data Segment = Segment
     } deriving (Show, Eq)
 
 data Scene = 
-    TitleDetails { select :: Int, title :: String }
-    | GameDetails Int String 
-    | GameOverDetails Int String
+      TitleScene TitleState
+    | GameScene  GameState
     deriving (Show, Eq)
+
+data TitleState = TitleState
+    { select :: Int
+    , title :: String
+    } deriving (Show, Eq)
+
+data GameState = GameState
+    { level :: Int
+    , game :: String
+    } deriving (Show, Eq)
 
 data GameField = GameField
     { fps :: Float
     , scene :: Scene
     } deriving (Show, Eq)
-
-

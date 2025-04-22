@@ -12,19 +12,20 @@ import BreakOut.Type
 
 sampleInit :: GameField
 sampleInit = GameField
-    { fps = 60
-    , scene = TitleDetails 0 "Title"
+    { fps = 0
+    , scene = GameScene $ GameState
+        { level = 1
+        , game = "BreakOut"
+        }
     }
 
 sampleDraw :: GameField -> Picture
 sampleDraw GameField{..} = 
     case scene of
-        TitleDetails _ _ -> 
-            Translate (-100) 0 $ Scale 0.1 0.1 $ Text $ show fps
-        GameDetails _ game -> 
-            Translate (-100) 0 $ Scale 0.1 0.1 $ Text game
-        GameOverDetails _ gameOver -> 
-            Translate (-100) 0 $ Scale 0.1 0.1 $ Text gameOver
+        TitleScene _ ->
+            Translate (-100) 0 $ Scale 0.1 0.1 $ Text "TitleScene"
+        GameScene _ ->
+            Translate (-100) 0 $ Scale 0.1 0.1 $ Text "GameScene"
 
 sampleEventHandler :: Event -> GameField -> GameField
 sampleEventHandler _ n = n
