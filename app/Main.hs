@@ -7,7 +7,7 @@ myWindowWidth :: Num a => a
 myWindowWidth = 960
 
 myWindowHeight :: Num a => a
-myWindowHeight = 540
+myWindowHeight = 600
 
 -- Windowのタイトルを指定する関数.
 myWindowTitle :: String

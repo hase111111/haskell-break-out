@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "stack build",
+            "type": "shell",
+            "command": "stack",
+            "args": [
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Generated task by Haskell extension."
+        },
+        {
+            "label": "stack exec",
+            "type": "shell",
+            "command": "stack",
+            "args": [
+                "exec",
+                "haskell-break-out-exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "stack build and run",
+            "type": "shell",
+            "command": "./bash/build_and_run.sh",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Generated task by Haskell extension."
+        }
+    ]
+}
