@@ -30,7 +30,7 @@ internalStage1List =
         row = 7
         col = 7
         centerX = 55
-        centerY = 100
+        centerY = 130
         startX = centerX - (fromIntegral col * diffX) / 2
         startY = centerY + (fromIntegral row * diffY) / 2
         makePos :: Int -> Int -> MT.Position

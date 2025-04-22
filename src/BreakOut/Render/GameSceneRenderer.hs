@@ -1,5 +1,3 @@
-{-# LANGUAGE RecordWildCards #-}
-
 module BreakOut.Render.GameSceneRenderer
   ( renderGameScene )
 where

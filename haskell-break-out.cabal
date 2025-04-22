@@ -35,6 +35,7 @@ library
       BreakOut.Render.GameSceneRenderer
       BreakOut.Render.TitleSceneRenderer
       BreakOut.Type
+      BreakOut.Update.GameSceneEventHandler
       BreakOut.Update.GameSceneUpdater
       WindowSetting
   other-modules:
