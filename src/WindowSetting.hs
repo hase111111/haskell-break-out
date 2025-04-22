@@ -6,7 +6,8 @@ module WindowSetting
     , myWindowFPS
     , myWindowDisplay
     , myWindowBackgroundColor
-    ) where
+    )
+where
 
 import Graphics.Gloss
 

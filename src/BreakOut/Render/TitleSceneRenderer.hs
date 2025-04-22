@@ -1,6 +1,6 @@
 module BreakOut.Render.TitleSceneRenderer
-  ( renderTitleScene
-  ) where
+  ( renderTitleScene) 
+where
 
 import Graphics.Gloss
 import BreakOut.Type

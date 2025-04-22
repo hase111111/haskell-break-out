@@ -1,4 +1,10 @@
-module BreakOut.Math.Util where
+module BreakOut.Math.Util 
+    ( distance
+    , segmentLength
+    , crossProduct
+    , dotProduct
+    , intersection )
+where
 
 import BreakOut.Math.Type
 
