@@ -8,9 +8,10 @@ import Graphics.Gloss
 
 import BreakOut.Type
 import BreakOut.Render.BlockRender
+import BreakOut.Render.Const
 
 
 renderGameScene :: GameState -> Picture
 renderGameScene GameState{..} =
-    renderRigidBody ballRigidBody (makeColor 1 0 0 1) <>
-    renderRigidBody paddleRigidBody (makeColor 0 1 0 1)
+    renderRigidBody ballRigidBody ballColor <>
+    renderRigidBody paddleRigidBody paddleColor
