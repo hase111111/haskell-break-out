@@ -4,17 +4,17 @@ module BreakOut.Param.Paddle
     , defaultPaddleRigidBody)
 where
 
-import BreakOut.Math.Type
+import qualified BreakOut.Math.Type as MT
 
-defaultPaddlePos :: Position
-defaultPaddlePos = Position 0 (-220)
+defaultPaddlePos :: MT.Position
+defaultPaddlePos = MT.Position 0 (-220)
 
-defaultPaddleCollision :: Collision
-defaultPaddleCollision = RectCollision $ RectCollisionParam 100 20
+defaultPaddleCollision :: MT.Collision
+defaultPaddleCollision = MT.RectCollision $ MT.RectCollisionParam 100 20
 
-defaultPaddleRigidBody :: RigidBody
-defaultPaddleRigidBody = RigidBody
-    { position = defaultPaddlePos
-    , velocity = zeroPosition
-    , collision = defaultPaddleCollision
+defaultPaddleRigidBody :: MT.RigidBody
+defaultPaddleRigidBody = MT.RigidBody
+    { MT.position = defaultPaddlePos
+    , MT.velocity = MT.zeroPosition
+    , MT.collision = defaultPaddleCollision
     }
