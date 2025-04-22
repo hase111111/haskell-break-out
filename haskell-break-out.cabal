@@ -30,9 +30,9 @@ library
       BreakOut.Param.Ball
       BreakOut.Param.Paddle
       BreakOut.Param.Stage
-      BreakOut.Render.BlockRender
       BreakOut.Render.Const
       BreakOut.Render.GameSceneRenderer
+      BreakOut.Render.RigidBodyRenderer
       BreakOut.Render.TitleSceneRenderer
       BreakOut.Type
       BreakOut.Update.GameSceneEventHandler
