@@ -1,4 +1,21 @@
-module BreakOut.Type where
+module BreakOut.Type(
+    -- * GameField
+    GameField(..)
+    , GameState(..)
+    , gameStateDefault
+    , Scene(..)
+    , TitleState(..)
+
+    -- * Kinematic
+    , Kinematic(..)
+    , Position(..)
+
+    -- * Segment
+    , Segment(..)
+
+    -- * RectCollision
+    , RectCollision(..)
+) where
 
 data Position = Position
     { positionX :: Float
@@ -40,8 +57,8 @@ data GameState = GameState
     , brickCollision :: RectCollision
     } deriving (Show, Eq)
 
-GameStateDefault :: GameState
-GameStateDefault = GameState
+gameStateDefault :: GameState
+gameStateDefault = GameState
     { level = 1
     , ballKinematic = Kinematic
         { position = Position 0 0
