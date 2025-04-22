@@ -35,7 +35,7 @@ stack install gloss
 
 ```bash
 sudo apt update
-sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
+sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev libgmp-dev
 ```
 
 ## 実行方法
